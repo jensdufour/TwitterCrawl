@@ -1,0 +1,3 @@
+*.csv
+TwitterSecrets.py
+__pycache__/
