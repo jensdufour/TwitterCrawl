@@ -39,7 +39,7 @@ try:
                       tweet.full_text.encode("utf-8").decode("utf-8")] 
                     for idx,tweet in enumerate(all_tweets)]
         df = pandas.DataFrame(outtweets,columns=["id","created_at","favorite_count","retweet_count", "text"])
-        df.to_csv('%s_tweets.csv' % target,index=False)
+        df.to_csv(r'./csv/%s_tweets.csv' % target,index=False)
         df.head(3)
 
 except BaseException as e:
