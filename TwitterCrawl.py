@@ -7,13 +7,13 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 auth_api = tweepy.API(auth)
 
-account_list = ["BulbUK","GenerationFndt","Danone","NetD_news","HovioneGroup","simplybusiness","EllasKitchenUK","AlfaAccountants","theCOOKkitchen","MacphieUK","Pukkaherbs","Ingeus_uk","ApivitaSA","les2vaches","lilyskitchen","Camif_","BatesWellsTweet","Ecotone_","divinechocolate","pixelis_agency","HerbatintItalia","BigIssue","eqinvestors","ARP_Astrance","Perlagewinery","ruchequiditoui","iglooRegen","nativeadv","ietp_","AgenceSidiese","resourcefutures","Treedom","WHEBsustainable","BridgesFundMgmt","ekodev","CitizenCapital","hcpgroup","microdon_fr","Patte_Blanche","FluidITuk","stonesoupchat","CuentoDeLuz","TrusteesUnltd","MSeedImpact","GreenApesJungle","NuovaVista","clipit_officiel","Investing4Good","Green_Element","wehlersdesign","TribeCapital","LumoFrance","Authenticitys","getyoti","bestreetwize","reviveNV","SkagerakDanmark","vanwijheverf","Fairphone","maseco_pw","PurProjet","BubbleChamber1","squizgourde","Birdeo","FARADGroup","aguialabs","lygofairtrade","actimpact","LeReveduDogon","OnPurposeUK"]
-
+account_list = ["aguialabs", "wehlersdesign", "LeReveduDogon", "SkagerakDanmark","vanwijheverf","BulbUK","GenerationFndt","Danone","NetD_news","HovioneGroup","simplybusiness","EllasKitchenUK","AlfaAccountants","theCOOKkitchen","MacphieUK","Pukkaherbs","Ingeus_uk","ApivitaSA","les2vaches","lilyskitchen","Camif_","BatesWellsTweet","Ecotone_","divinechocolate","pixelis_agency","HerbatintItalia","BigIssue","eqinvestors","ARP_Astrance","Perlagewinery","ruchequiditoui","iglooRegen","nativeadv","ietp_","AgenceSidiese","resourcefutures","Treedom","WHEBsustainable","BridgesFundMgmt","ekodev","CitizenCapital","hcpgroup","microdon_fr","Patte_Blanche","FluidITuk","stonesoupchat","CuentoDeLuz","TrusteesUnltd","MSeedImpact","GreenApesJungle","NuovaVista","clipit_officiel","Investing4Good","Green_Element","wehlersdesign","TribeCapital","LumoFrance","Authenticitys","getyoti","bestreetwize","reviveNV","SkagerakDanmark","vanwijheverf","Fairphone","maseco_pw","PurProjet","BubbleChamber1","squizgourde","Birdeo","FARADGroup","aguialabs","lygofairtrade","actimpact","LeReveduDogon","OnPurposeUK"]
 try:
   for target in account_list:
+    print("Searching for", target)
     tweets = auth_api.user_timeline(screen_name=target, 
                             count=200,
-                            include_rts = False,
+                            include_rts = True,
                             tweet_mode = 'extended'
                             )
     all_tweets = []
@@ -22,7 +22,7 @@ try:
     while True:
         tweets = auth_api.user_timeline(screen_name=target, 
                               count=200,
-                              include_rts = False,
+                              include_rts = True,
                               max_id = oldest_id - 1,
                               tweet_mode = 'extended'
                               )
